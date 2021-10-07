@@ -3,7 +3,7 @@ import * as React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { Splash, Beranda, Publikasi, PublikasiItem, Infografis, InfografisItem, Kondef } from '../screens';
+import { Splash, Beranda, Publikasi, PublikasiItem, Infografis, InfografisItem, Kondef, IndikatorItem, Indikator } from '../screens';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
   
   const Drawer = createDrawerNavigator();
@@ -14,6 +14,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
         <Drawer.Screen name="Beranda" component={Beranda} />
         <Drawer.Screen name="Publikasi" component={Publikasi} />
         <Drawer.Screen name="Infografis" component={Infografis} />
+        <Drawer.Screen name="Indikator" component={Indikator} />
         <Drawer.Screen name="Konsep & Definisi" component={Kondef} />
       </Drawer.Navigator>
 
@@ -23,6 +24,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
     <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} />
     <Stack.Screen name="InfografisItem" component={InfografisItem} />
     <Stack.Screen name="PublikasiItem" component={PublikasiItem} />
+    <Stack.Screen name="IndikatorItem" component={IndikatorItem} />
   </Stack.Navigator>  
 
   export default function Navigation() {

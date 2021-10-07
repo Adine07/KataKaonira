@@ -31,6 +31,220 @@ const PublikasiItem = ({navigation, route}) => {
         }
     };
     return (
+        // <View style={{ backgroundColor: 'white', flex: 1 }}>
+        //     <Modal
+        //         animationType="fade"
+        //         transparent={true}
+        //         visible={modalVisible}
+        //     >
+        //         <View
+        //             style={{ 
+        //                 flex: 1,
+        //                 flexDirection: 'column-reverse',
+        //                 backgroundColor: 'rgba(0,0,0,0.5)',
+        //                 justifyContent: 'flex-start',
+        //                 alignItems: 'center',
+        //              }}
+        //         >
+        //             <View
+        //                 style={{ 
+        //                     backgroundColor: 'white',
+        //                     width: '90%',
+        //                     padding: 20,
+        //                     borderRadius: 10
+        //                 }}
+        //             >
+
+        //                 <Text
+        //                     style={styles.modalTitle}
+        //                 >
+        //                     Judul :
+        //                 </Text>
+        //                 <Text
+        //                     style={styles.modalText}
+        //                 >
+        //                     {data.title}
+        //                 </Text>
+        //                 <Text
+        //                     style={styles.modalTitle}
+        //                 >
+        //                     ISSN :
+        //                 </Text>
+        //                 <Text
+        //                     style={styles.modalText}
+        //                 >
+        //                     {data.issn}
+        //                 </Text>
+        //                 <Text
+        //                     style={styles.modalTitle}
+        //                 >
+        //                     Tanggal Rilis:
+        //                 </Text>
+        //                 <Text
+        //                     style={styles.modalText}
+        //                 >
+        //                     {data.rl_date}
+        //                 </Text>
+        //                 <Text
+        //                     style={styles.modalTitle}
+        //                 >
+        //                     Size :
+        //                 </Text>
+        //                 <Text
+        //                     style={styles.modalText}
+        //                 >
+        //                     {data.size}
+        //                 </Text>
+        //                 <Pressable
+        //                     style={{ 
+        //                         backgroundColor: '#2ba0ff',
+        //                         padding: 10,
+        //                         borderRadius: 10,
+        //                         marginTop: 10,
+        //                      }}
+        //                     onPress={() => setModalVisible(!modalVisible)}
+        //                 >
+        //                     <Text
+        //                         style={{ 
+        //                             color: 'white',
+        //                             fontWeight: 'bold',
+        //                             textAlign: 'center',
+        //                          }}
+        //                     >Close</Text>
+        //                 </Pressable>
+        //             </View>
+        //         </View>
+        //     </Modal>
+        //     <Header title="Publikasi"  back navigation={() => navigation.goBack()} />
+        //     <View
+        //         style={{ 
+        //             padding: 20,
+        //          }}
+        //     >
+        //         <View
+        //             style={{ 
+        //                 flexDirection: 'row',
+        //                 justifyContent: 'space-between',
+        //                 paddingBottom: 20,
+        //                 borderBottomColor: '#00000025',
+        //                 borderBottomWidth: 2,
+        //              }}
+        //         >
+
+        //             <ImageBackground
+        //                 source={{ uri: data?.cover }}
+        //                 style={{
+        //                     width: Dimensions.get('window').width / 2.3,
+        //                     height: Dimensions.get('window').height / 3.3,
+        //                 }}
+        //                 imageStyle={{ borderRadius: 5 }}
+        //             >
+        //             </ImageBackground>
+        //             <View>
+        //                 <Text
+        //                     style={{ 
+        //                         fontWeight: 'bold',
+        //                         fontSize: 20,
+        //                         width: Dimensions.get('window').width / 2.3,
+        //                         borderBottomColor: 'black',
+        //                         borderBottomWidth: 1,
+        //                     }}
+        //                 >{data?.title || "Tidak ada judul"}</Text>
+
+        //                 <TouchableOpacity
+        //                     onPress={() => setModalVisible(true) }
+        //                     style={{ 
+        //                         width: '100%',
+        //                         backgroundColor: '#2ba0ff',
+        //                         marginTop: 10,
+        //                         borderRadius: 5,
+        //                         paddingHorizontal: 10,
+        //                         paddingVertical: 5,
+        //                     }}
+        //                 >
+        //                     <View
+        //                         style={{ 
+        //                             flexDirection: 'row',
+        //                             alignContent: 'center',
+        //                             justifyContent: 'center',
+        //                             alignItems: 'center'
+        //                          }}
+        //                     >
+        //                         <InfoIcon width={25} height={25} />
+        //                         <Text
+        //                             style={{ paddingLeft: 5 }}
+        //                         >Informasi</Text>
+        //                     </View>
+        //                 </TouchableOpacity>
+
+        //                 <TouchableOpacity
+        //                     onPress={() =>{ Linking.openURL(data.pdf) }}
+        //                     style={{ 
+        //                         width: '100%',
+        //                         backgroundColor: '#2ba0ff',
+        //                         marginTop: 10,
+        //                         borderRadius: 5,
+        //                         paddingHorizontal: 10,
+        //                         paddingVertical: 5,
+        //                     }}
+        //                 >
+        //                     <View
+        //                         style={{ 
+        //                             flexDirection: 'row',
+        //                             alignContent: 'center',
+        //                             justifyContent: 'center',
+        //                             alignItems: 'center'
+        //                          }}
+        //                     >
+        //                         <DownloadIcon width={25} height={25} />
+        //                         <Text
+        //                             style={{ paddingLeft: 5 }}
+        //                         >Download</Text>
+        //                     </View>
+        //                 </TouchableOpacity>
+
+        //                 <TouchableOpacity
+        //                     onPress={onShare}
+        //                     style={{ 
+        //                         width: '100%',
+        //                         backgroundColor: '#2ba0ff',
+        //                         marginTop: 10,
+        //                         borderRadius: 5,
+        //                         paddingHorizontal: 10,
+        //                         paddingVertical: 5,
+        //                     }}
+        //                 >
+        //                     <View
+        //                         style={{ 
+        //                             flexDirection: 'row',
+        //                             alignContent: 'center',
+        //                             justifyContent: 'center',
+        //                             alignItems: 'center'
+        //                          }}
+        //                     >
+        //                         <ShareIcon width={25} height={25} />
+        //                         <Text
+        //                             style={{ paddingLeft: 5 }}
+        //                         >Bagikan</Text>
+        //                     </View>
+        //                 </TouchableOpacity>
+        //             </View>
+
+        //         </View>
+
+
+        //         <View
+        //             style={{ 
+        //                 paddingTop: 20
+        //              }}
+        //         >
+        //             <Text>
+        //                 AAA
+        //             </Text>
+        //         </View>
+
+        //     </View>
+        // </View>
         <View style={{ backgroundColor: 'white', flex: 1 }}>
             <Modal
                 animationType="fade"

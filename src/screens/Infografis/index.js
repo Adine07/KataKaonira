@@ -17,7 +17,7 @@ const Infografis = ({navigation}) => {
     }, [])
     
     const getInfografis = async (page) => {
-        await BpsApi.getAllInfografisPusat(page).then(res => {
+        await BpsApi.getAllInfografis(page).then(res => {
             console.log('Infografis', res.data)
             setInfografis(res.data.data[1])
             setpage(res.data.data[0])

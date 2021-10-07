@@ -25,4 +25,7 @@ export default {
 	getKondefVariabel () {
 		return axios.get('http://kaonira.web.id/metadata/variabel')
 	},
+	getIndikator () {
+		return axios.get('http://kaonira.web.id/indikator/nilai')
+	},
 }

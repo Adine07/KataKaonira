@@ -14,11 +14,13 @@ const Beranda = ({navigation, route}) => {
     useEffect(() => {
         getPublication(1)
         getInfografis(1)
+        getIndikator()
     }, [])
 
 
     const [publication, setPublication] = useState([])
     const [infografis, setInfografis] = useState([])
+    const [indikator, setIndikator] = useState([])
 
     const getPublication = async (page) => {
         await BpsApi.getAllPublication(page, '').then(res => {
@@ -30,9 +32,18 @@ const Beranda = ({navigation, route}) => {
     }
 
     const getInfografis = async (page) => {
-        await BpsApi.getAllInfografisPusat(page).then(res => {
+        await BpsApi.getAllInfografis(page).then(res => {
             console.log('Infografis', res.data)
             setInfografis(res.data.data)
+        }).catch(err => {
+            console.log(err.message)
+        })
+    }
+
+    const getIndikator = async () => {
+        await BpsApi.getIndikator().then(res => {
+            console.log('Indikator', res.data)
+            setIndikator(res.data)
         }).catch(err => {
             console.log(err.message)
         })
@@ -86,6 +97,36 @@ const Beranda = ({navigation, route}) => {
             </>
         )
     })
+
+    const IndiItem = indikator?.slice(0,5).map((data) => {
+        return(
+            <>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('PublikasiItem', {data})}
+                >
+                    <View
+                        style={styles.indikatorWrapper}
+                    >
+                        {/* <Text
+                            style={styles.indikatorUpdate}
+                        >
+                            Update: 26 Oct 2020
+                        </Text> */}
+                        <Text
+                            style={styles.indikatorContent}
+                        >
+                            {data.judul}
+                        </Text>
+                        <Text
+                            style={styles.indikatorTag}
+                        >
+                            dalam satuan {data.satuan || "-"}
+                        </Text>
+                    </View>
+                </TouchableOpacity>
+            </>
+        )
+    })
     // console.log("ininih publikasi", publication[1])
     // console.log("ininih infografis", infografis[1])
 
@@ -124,107 +165,7 @@ const Beranda = ({navigation, route}) => {
                             style={styles.h1}
                         >Indikator Populer</Text>
 
-                        <View
-                            style={styles.indikatorWrapper}
-                        >
-                            <Text
-                                style={styles.indikatorUpdate}
-                            >
-                                Update: 26 Oct 2020
-                            </Text>
-                            <Text
-                                style={styles.indikatorContent}
-                            >
-                                Contrary to popular belief, Lorem Ipsum...
-                            </Text>
-                            <Text
-                                style={styles.indikatorTag}
-                            >
-                                #Kependudukan #Kewarganegaraan
-                            </Text>
-                        </View>
-
-                        <View
-                            style={styles.indikatorWrapper}
-                        >
-                            <Text
-                                style={styles.indikatorUpdate}
-                            >
-                                Update: 26 Oct 2020
-                            </Text>
-                            <Text
-                                style={styles.indikatorContent}
-                            >
-                                Contrary to popular belief, Lorem Ipsum...
-                            </Text>
-                            <Text
-                                style={styles.indikatorTag}
-                            >
-                                #Kependudukan #Kewarganegaraan
-                            </Text>
-                        </View>
-
-                        <View
-                            style={styles.indikatorWrapper}
-                        >
-                            <Text
-                                style={styles.indikatorUpdate}
-                            >
-                                Update: 26 Oct 2020
-                            </Text>
-                            <Text
-                                style={styles.indikatorContent}
-                            >
-                                Contrary to popular belief, Lorem Ipsum...
-                            </Text>
-                            <Text
-                                style={styles.indikatorTag}
-                            >
-                                #Kependudukan #Kewarganegaraan
-                            </Text>
-                        </View>
-
-                        <View
-                            style={styles.indikatorWrapper}
-                        >
-                            <Text
-                                style={styles.indikatorUpdate}
-                            >
-                                Update: 26 Oct 2020
-                            </Text>
-                            <Text
-                                style={styles.indikatorContent}
-                            >
-                                Contrary to popular belief, Lorem Ipsum...
-                            </Text>
-                            <Text
-                                style={styles.indikatorTag}
-                            >
-                                #Kependudukan #Kewarganegaraan
-                            </Text>
-                        </View>
-
-                        <View
-                            style={styles.indikatorWrapper}
-                        >
-                            <Text
-                                style={styles.indikatorUpdate}
-                            >
-                                Update: 26 Oct 2020
-                            </Text>
-                            <Text
-                                style={styles.indikatorContent}
-                            >
-                                Contrary to popular belief, Lorem Ipsum...
-                            </Text>
-                            <Text
-                                style={styles.indikatorTag}
-                            >
-                                #Kependudukan #Kewarganegaraan
-                            </Text>
-                        </View>
-
-
+                        {IndiItem}
                         
                     </View>
 
