@@ -102,7 +102,7 @@ const Beranda = ({navigation, route}) => {
         return(
             <>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('PublikasiItem', {data})}
+                    onPress={() => navigation.navigate('IndikatorItem', {data: data.data, judul: data.judul, satuan: data.satuan})}
                 >
                     <View
                         style={styles.indikatorWrapper}
